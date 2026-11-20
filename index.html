@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ───────────────────────── HEADER ───────────────────────── -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <span class="app-title">📋 Dashboard</span>
+    </div>
+    <div class="topbar__right">
+      <button id="btn-theme" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- ───────────────────────── MAIN GRID ───────────────────────── -->
+  <main class="grid">
+
+    <!-- === GREETING CARD === -->
+    <section class="card card--greeting" aria-label="Greeting">
+      <div class="greeting__content">
+        <p id="greeting-text" class="greeting__text">Good morning</p>
+        <h1 id="greeting-name" class="greeting__name">Friend</h1>
+        <p id="clock" class="greeting__clock">00:00:00</p>
+        <p id="date-display" class="greeting__date">Monday, January 1, 2024</p>
+      </div>
+      <div class="greeting__actions">
+        <div class="name-edit">
+          <input id="input-name" type="text" placeholder="Enter your name…" maxlength="30" class="text-input" />
+          <button id="btn-save-name" class="btn btn--primary">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- === FOCUS TIMER CARD === -->
+    <section class="card card--timer" aria-label="Focus timer">
+      <h2 class="card__title">🍅 Focus Timer</h2>
+
+      <div class="timer__display" id="timer-display">25:00</div>
+
+      <div class="timer__controls">
+        <button id="btn-start" class="btn btn--primary">Start</button>
+        <button id="btn-stop"  class="btn btn--secondary">Stop</button>
+        <button id="btn-reset" class="btn btn--ghost">Reset</button>
+      </div>
+
+      <div class="timer__config">
+        <label for="timer-minutes" class="label">Set minutes:</label>
+        <input id="timer-minutes" type="number" min="1" max="120" value="25" class="number-input" />
+        <button id="btn-set-timer" class="btn btn--ghost btn--sm">Set</button>
+      </div>
+
+      <div class="timer__progress">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-bar__fill"></div>
+        </div>
+        <p id="timer-status" class="timer__status">Ready to focus</p>
+      </div>
+    </section>
+
+    <!-- === TO-DO LIST CARD === -->
+    <section class="card card--todo" aria-label="To-do list">
+      <h2 class="card__title">✅ To-Do List</h2>
+
+      <div class="todo__add">
+        <input id="todo-input" type="text" placeholder="Add a new task…" class="text-input" maxlength="120" />
+        <button id="btn-add-todo" class="btn btn--primary">Add</button>
+      </div>
+
+      <div class="todo__filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="done">Done</button>
+      </div>
+
+      <ul id="todo-list" class="todo__list"></ul>
+
+      <div class="todo__footer">
+        <span id="todo-count" class="todo__count">0 tasks left</span>
+        <button id="btn-clear-done" class="btn btn--ghost btn--sm">Clear done</button>
+      </div>
+    </section>
+
+    <!-- === QUICK LINKS CARD === -->
+    <section class="card card--links" aria-label="Quick links">
+      <h2 class="card__title">🔗 Quick Links</h2>
+
+      <div class="links__add">
+        <input id="link-label" type="text"  placeholder="Label (e.g. YouTube)" class="text-input" maxlength="30" />
+        <input id="link-url"   type="url"   placeholder="https://…" class="text-input" />
+        <button id="btn-add-link" class="btn btn--primary">Add</button>
+      </div>
+
+      <div id="links-grid" class="links__grid"></div>
+    </section>
+
+  </main>
+
+  <!-- ───────────────────── EDIT TASK MODAL ───────────────────── -->
+  <div id="edit-modal" class="modal" role="dialog" aria-modal="true" aria-label="Edit task">
+    <div class="modal__box">
+      <h3 class="modal__title">Edit Task</h3>
+      <input id="edit-input" type="text" class="text-input modal__input" maxlength="120" />
+      <div class="modal__actions">
+        <button id="btn-edit-save"   class="btn btn--primary">Save</button>
+        <button id="btn-edit-cancel" class="btn btn--ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal-overlay" class="modal__overlay"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
